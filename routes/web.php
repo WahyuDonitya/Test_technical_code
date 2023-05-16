@@ -22,4 +22,5 @@ Route::get('/', function () {
 Route::get('/home', [SiteController::class, 'home']);
 Route::post('/triangle', [SiteController::class, 'triangle'])->name('segitiga');
 Route::post('/ganjil', [SiteController::class, 'ganjil'])->name('ganjil');
+Route::post('/prima', [SiteController::class, 'prima'])->name('prima');
 

@@ -14,7 +14,7 @@ class SiteController extends Controller
     public function triangle(Request $request)
     {
         $number = $request->input('number');
-        dd($number);
+
 
         $output = '';
         for($i = 1; $i <= $number; $i++){
@@ -33,6 +33,32 @@ class SiteController extends Controller
 
     public function ganjil(Request $request)
     {
-        dd('coba');
+        $number = $number = $request->input('number');
+
+        $output = '';
+        for($i = 1; $i <= $number; $i++){
+            if($i % 2 == 1){
+                $output .= $i;
+            }
+            $output .= ', ';
+        }
+        return $output;
+    }
+
+    public function prima(Request $request)
+    {
+        $number = $number = $request->input('number');
+
+        $output = '';
+
+        for($i = 1; $i <= $number; $i++){
+            if($i == 1){
+                continue;
+            }
+            else if($number % $i == 0){
+                $output .= $i;
+            }
+        }
+        return $output;
     }
 }

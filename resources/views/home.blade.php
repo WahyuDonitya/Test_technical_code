@@ -24,7 +24,7 @@
                     url: "{{ route('segitiga') }}",
                     success: function(response){
                         alert('masuk');
-                        $("#result").html(response.success);
+                        $("#result").html(response);
                     }
                 })
             })
@@ -43,7 +43,16 @@
             })
 
             $('#prima_btn').click(function(){
-                alert('prima');
+                var number = $("#bilangan").val()
+                $.ajax({
+                    type: "POST",
+                    data: {"number" : number},
+                    url: "{{ route('ganjil') }}",
+                    success: function(response){
+                        alert('masuk');
+                        $("#result").html(response);
+                    }
+                })
             })
         })
     </script>
