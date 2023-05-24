@@ -17,10 +17,12 @@ class SiteController extends Controller
 
 
         $output = '';
-        for($i = 1; $i <= $number; $i++){
-            for($j = 1; $j <= $i; $j++){
+        $char = '';
+        for($i = 1; $i <= strlen($number); $i++){
+            $char = $number[$i - 1];
+            for($j = 1; $j <= $i+1; $j++){
                 if($j == 1){
-                    $output .= $i;
+                    $output .= $char;
                 }else{
                     $output .= "0";
                 }
@@ -38,9 +40,8 @@ class SiteController extends Controller
         $output = '';
         for($i = 1; $i <= $number; $i++){
             if($i % 2 == 1){
-                $output .= $i;
+                $output .= $i.", ";
             }
-            $output .= ', ';
         }
         return $output;
     }
@@ -52,13 +53,26 @@ class SiteController extends Controller
         $output = '';
 
         for($i = 1; $i <= $number; $i++){
-            if($i == 1){
-                continue;
-            }
-            else if($number % $i == 0){
-                $output .= $i;
+            $flag = $this->isPrime($i);
+
+            if($flag){
+                $output .= $i.", ";
             }
         }
         return $output;
+    }
+
+    function isPrime($number) {
+        if ($number < 2) {
+            return false;
+        }
+
+        for ($i = 2; $i <= sqrt($number); $i++) {
+            if ($number % $i === 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

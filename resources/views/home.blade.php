@@ -47,7 +47,7 @@
                 $.ajax({
                     type: "POST",
                     data: {"number" : number},
-                    url: "{{ route('ganjil') }}",
+                    url: "{{ route('prima') }}",
                     success: function(response){
                         alert('masuk');
                         $("#result").html(response);
